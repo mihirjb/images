@@ -22,6 +22,8 @@ gem 'devise', '3.0.0.rc'
 gem 'aws-sdk'
 gem 'twitter-typeahead-rails'
 gem 'impressionist'
+gem 'social-share-button'
+
 
 
 

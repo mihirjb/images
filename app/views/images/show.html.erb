@@ -3,8 +3,10 @@
 		<div class="img-show">
 		<h1><%=@image.title%></h1>
 		<%= image_tag @image.picture.url('original')%>
-		<p><%=@image.description %></p>
+		<div class="desc"><p><%= social_share_button_tag(@image.title) %><br/>
+		<%=@image.description %></p></div>
+		<div class="views">
 		<p>Viewed <%=@image.impressionist_count %> times</p>
-		</div>
+		</div></div>
 	</div>
 </section>

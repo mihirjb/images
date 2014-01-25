@@ -1,5 +1,5 @@
 @import 'bootstrap';
-
+@import 'social-share-button';
 body
 {
 }
@@ -48,8 +48,7 @@ div.img-show h1
 }
 div.img-show p
 {
-	border-bottom:1px solid #ececec;
-	border-top:1px solid #ececec;
+	
 	margin:0 auto;
 	border-collapse:collapse;
 	padding:10px;	
@@ -77,7 +76,12 @@ div.wrapper ul.img-list li h4
 div.wrapper div.img-show img 
 {
 	margin:20px auto;
-	height:600px;
+	max-width:600px;
 
 }
 
+div.desc, div.views
+{
+	border-bottom:1px solid #ececec;
+	border-top:1px solid #ececec;
+}
