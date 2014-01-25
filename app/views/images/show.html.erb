@@ -1,0 +1,10 @@
+<section>
+	<div class="wrapper">
+		<div class="img-show">
+		<h1><%=@image.title%></h1>
+		<%= image_tag @image.picture.url('original')%>
+		<p><%=@image.description %></p>
+		<p>Viewed <%=@image.impressionist_count %> times</p>
+		</div>
+	</div>
+</section>
