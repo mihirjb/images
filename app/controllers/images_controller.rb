@@ -8,11 +8,11 @@ class ImagesController < ApplicationController
   end
 
   def new
-    @image = Image.new
+    @image = current_user.images.new
   end
 
   def create
-    @image = Image.create(image_params)
+    @image = current_user.images.create(image_params)
     if @image.save
       redirect_to :root, :notice =>"Image added Successfully."
     else
@@ -30,7 +30,7 @@ class ImagesController < ApplicationController
    end
 
    def update
-     @image = Image.find(params[:id])
+     @image = current_user.images.find(params[:id])
       if @image.update(image_params())
          redirect_to :root, :notice => "Congratulations, image updated Successfully."
        else
@@ -39,7 +39,7 @@ class ImagesController < ApplicationController
    end
 
    def destroy
-     @image = Image.find(params[:id]).destroy
+     @image = current_user.images.find(params[:id]).destroy
    end
   
   

@@ -16,5 +16,7 @@
 class Image < ActiveRecord::Base
   is_impressionable
   
+  belongs_to :user
+  
     has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>", :mini => "30x30>" }, :default_url => "/pictures/:style/missing.png"
 end
