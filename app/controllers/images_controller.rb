@@ -5,6 +5,9 @@ class ImagesController < ApplicationController
   
   def index
     @images = Image.all
+      if params[:search]
+        @images = Image.where("title Like ?", "%#{params[:search]}%") 
+     end
   end
 
   def new
@@ -61,6 +64,12 @@ class ImagesController < ApplicationController
           format.js
         end
     end
+    
+    
+    def titles
+       @images = Image.where("title Like ?", "%#{params[:search]}%") 
+       render json: @images.map(&:title)  
+     end
   
   private 
    def image_params

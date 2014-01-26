@@ -20,18 +20,17 @@
 		<div class="comment-form mini-section">
 	
 				<% if user_signed_in? %>
-					<%= form_for @comment, :class=>"form-horizontal",  :role => "form" do |f| %>
+					<%= form_for @comment, :class=>"form-inline",  :role => "form" do |f| %>
 			<div class="form-group">
-				<%= f.text_area :commentbody, :class=> "form-control", :placeholder=>"Write something here" %>
+				<%= f.text_field :commentbody, :class=> "form-control", :placeholder=>"Write something here" %>
 			</div>
+			<div class="form-group">
 			<%= f.hidden_field :image_id, :value => @image.id %>
 			<%= f.hidden_field :user_id, :value => current_user.id %>
 			<input type="text" name="foo" style="display: none;">
+</div>
 
-
-			<div class="form-group">
 			<%= f.submit "Add a comment", :disable_with => 'Adding...', :class =>"btn btn-primary btn-sm submit" %>
-			</div>
 			<% end %>
 
 			<% else %>

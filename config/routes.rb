@@ -1,15 +1,18 @@
 Imgthing::Application.routes.draw do
   
   root :to => 'images#index'
+  get 'images/titles' => 'images#titles'
+  
   devise_for :users
   resources :images do
      member do
         get :vote_for_image
-        get :vote_against_image
+        delete :vote_against_image
         
      end
   end
   resources :comments
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
