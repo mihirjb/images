@@ -9,7 +9,7 @@
 							<%=@image.description %></p>
 							<%= social_share_button_tag(@image.title) %></div>
 						<div class="mini-section votes">
-<p><%= Vote.where('voteable_id =? AND vote =?', @image.id, true).count %> <span class="glyphicon glyphicon-thumbs-up"></span>  <%= Vote.where('voteable_id =? AND vote =?', @image.id, false).count %> <span class="glyphicon glyphicon-thumbs-down"></span> | <%=@image.impressionist_count %> Views</p>
+<p><span class="cushion"><%= Vote.where('voteable_id =? AND vote =?', @image.id, true).count %> <span class="glyphicon glyphicon-thumbs-up"></span></span><span class="cushion">  <%= Vote.where('voteable_id =? AND vote =?', @image.id, false).count %> <span class="glyphicon glyphicon-thumbs-down"></span></span> <span class="cushion"><%=@image.impressionist_count %> Views</span></p>
 
 							</div>
 							<div class="links mini-section">Direct Link: <input type="text" class="form-control" readonly value="<%= root_url + "/images/#{@image.id}"%>" /></div>
