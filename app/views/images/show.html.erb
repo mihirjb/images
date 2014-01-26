@@ -2,7 +2,7 @@
 	<div class="wrapper">
 		<div class="sidebar">
 			<div class="mini-section">
-				<h1><span class="title-text"><%=@image.title%> </span>
+				<h1><span class="title-text" id="<%= @image.id %>"><%=@image.title%> </span>
 					
 					<% if user_signed_in?%>
 					
@@ -11,7 +11,7 @@
 					<% if @found.nil? %>
 					<span class="vote-img">	<%=link_to raw('<span class="glyphicon glyphicon-thumbs-up"></span>'), vote_for_image_image_path(@image), :class=>"vote",:id=>"up", :remote => true %>
 					<%=link_to raw('<span class="glyphicon glyphicon-thumbs-down"></span>'), vote_against_image_image_path(@image), :class=>"vote",:id=>"down", :remote => true %>
-					<% else %>
+					<% else%>
 					
 						<% if  @found.vote == false %>
 						<span class="vote-img">	<%=link_to raw('<span class="glyphicon glyphicon-thumbs-up"></span>'), vote_for_image_image_path(@image), :class=>"vote",:id=>"up", :remote => true %>

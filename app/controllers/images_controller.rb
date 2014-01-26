@@ -73,12 +73,12 @@ class ImagesController < ApplicationController
   
   
     def upvotes
-          @upvotes = Vote.where("voteable_id Like ? AND vote = ?", "%#{params[:id]}%", true) 
+          @upvotes = Vote.where("voteable_id == ? AND vote == ?", params[:id], true) 
           render json: @upvotes.count 
     end
         
     def downvotes
-            @downvotes = Vote.where("voteable_id Like ? AND vote = ?", "%#{params[:id]}%", false) 
+            @downvotes = Vote.where("voteable_id Like ? AND vote LIKE ?", "%#{params[:id]}%", false) 
             render json: @downvotes.count 
     end
   
