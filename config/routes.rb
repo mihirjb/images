@@ -2,6 +2,8 @@ Imgthing::Application.routes.draw do
   
   root :to => 'images#index'
   get 'images/titles' => 'images#titles'
+  get "/images/upvotes" => "images#upvotes"
+  get "/images/downvotes" => "images#downvotes"
   
   devise_for :users
   resources :images do

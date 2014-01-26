@@ -97,5 +97,41 @@
 	});
 
 
+
+	$("#up").click(function() {
+		$('#up').attr('disabled','disabled'); 
+		$("#down").removeAttr('disabled');
+			var upvotes;
+				$.getJSON('/images/upvotes.json',function(json){
+				    upvotes = json;  
+				upvotes += 1;
+				alert(upvotes);
+					$(".upvote").text(upvotes);
+				
+				});
+	});
+	
+		$("#down").click(function() {
+			$("#up").removeAttr('disabled');
+			$('#down').attr('disabled','disabled'); 
+			
+				var downvotes;
+				
+			
+					$.getJSON('/images/downvotes.json',function(json){
+					    downvotes = json;
+						downvotes += 1;
+					  	alert(downvotes);
+					
+						$(".downvote").text(downvotes);
+					
+					});
+			
+		});
+		
+		
+	
+
+
 </script>
 

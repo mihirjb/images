@@ -121,7 +121,7 @@ div.sidebar h1 span.title-text
 }
 h1 span.vote-img
 {
-	width:10%;
+	width:5%;
 	float:right;
 }
 
@@ -204,4 +204,8 @@ span.cushion
 	color:#CB202D;
 	
 }
-
+a[disabled]
+{
+	color:#000;
+	cursor:pointer;
+}

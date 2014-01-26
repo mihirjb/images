@@ -2,16 +2,40 @@
 	<div class="wrapper">
 		<div class="sidebar">
 			<div class="mini-section">
-				<h1><span class="title-text"><%=@image.title%> </span>	<span class="vote-img">	<%=link_to raw('<span class="glyphicon glyphicon-thumbs-up"></span>'), vote_for_image_image_path(@image), :remote => true %>
-						<%=link_to raw('<span class="glyphicon glyphicon-thumbs-down"></span>'), vote_against_image_image_path(@image), :remote => true %> 	
+				<h1><span class="title-text"><%=@image.title%> </span>
 					
-											</span></h1></div>
+					<% if user_signed_in?%>
+					
+					<%    @found = current_user.votes.find_by_voteable_id(@image.id) %>
+					
+					<% if @found.nil? %>
+					<span class="vote-img">	<%=link_to raw('<span class="glyphicon glyphicon-thumbs-up"></span>'), vote_for_image_image_path(@image), :class=>"vote",:id=>"up", :remote => true %>
+					<%=link_to raw('<span class="glyphicon glyphicon-thumbs-down"></span>'), vote_against_image_image_path(@image), :class=>"vote",:id=>"down", :remote => true %>
+					<% else %>
+					
+						<% if  @found.vote == false %>
+						<span class="vote-img">	<%=link_to raw('<span class="glyphicon glyphicon-thumbs-up"></span>'), vote_for_image_image_path(@image), :class=>"vote",:id=>"up", :remote => true %>
+						<%=link_to raw('<span class="glyphicon glyphicon-thumbs-down"></span>'), vote_against_image_image_path(@image), :class=>"vote",:id=>"down", :remote => true, :disabled => "disabled" %> 	
+						</span>
+						
+						<% else %>
+							<span class="vote-img">	<%=link_to raw('<span class="glyphicon glyphicon-thumbs-up"></span>'), vote_for_image_image_path(@image), :class=>"vote",:id=>"up", :remote => true, :disabled => "disabled" %>
+							<%=link_to raw('<span class="glyphicon glyphicon-thumbs-down"></span>'), vote_against_image_image_path(@image), :class=>"vote",:id=>"down", :remote => true %>
+						<%end%>
+						
+						<%end%>
+						
+						<% end %>
+						
+						
+						
+						</h1></div>
 						
 							<div class="mini-section desc"><p>
 							<%=@image.description %></p>
 							<%= social_share_button_tag(@image.title) %></div>
 						<div class="mini-section votes">
-<p><span class="cushion"><%= Vote.where('voteable_id =? AND vote =?', @image.id, true).count %> <span class="glyphicon glyphicon-thumbs-up"></span></span><span class="cushion">  <%= Vote.where('voteable_id =? AND vote =?', @image.id, false).count %> <span class="glyphicon glyphicon-thumbs-down"></span></span> <span class="cushion"><%=@image.impressionist_count %> Views</span>
+<p><span class="cushion"><span class="upvote"><%= Vote.where('voteable_id =? AND vote =?', @image.id, true).count %></span> <span class="glyphicon glyphicon-thumbs-up"></span></span><span class="cushion">  <span class="downvote"><%= Vote.where('voteable_id =? AND vote =?', @image.id, false).count %></span> <span class="glyphicon glyphicon-thumbs-down"></span></span> <span class="cushion"><%=@image.impressionist_count %> Views</span>
 	
 		<% if user_signed_in?%>
 			<%    @instance = current_user.favorites.find_by_image_id(@image.id) %>

@@ -52,14 +52,14 @@ class ImagesController < ApplicationController
   
    def vote_for_image
        @image = Image.find(params[:id])
-       current_user.vote_for(@image)
+       current_user.vote_exclusively_for(@image)
        respond_to do |format|
          format.js
        end
    end
    def vote_against_image
         @image = Image.find(params[:id])
-        current_user.vote_against(@image)
+        current_user.vote_exclusively_against(@image)
         respond_to do |format|
           format.js
         end
@@ -70,6 +70,17 @@ class ImagesController < ApplicationController
        @images = Image.where("title Like ?", "%#{params[:search]}%") 
        render json: @images.map(&:title)  
      end
+  
+  
+    def upvotes
+          @upvotes = Vote.where("voteable_id Like ? AND vote = ?", "%#{params[:id]}%", true) 
+          render json: @upvotes.count 
+    end
+        
+    def downvotes
+            @downvotes = Vote.where("voteable_id Like ? AND vote = ?", "%#{params[:id]}%", false) 
+            render json: @downvotes.count 
+    end
   
   private 
    def image_params
