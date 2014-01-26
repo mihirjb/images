@@ -6,7 +6,7 @@
 		
 			<div class="form-group">
 			<div class="input-group-lg">
-				<h3>Data about you</h3>
+				<h3>Upload your picture here.</h3>
 				<%= f.label :picture, "Upload your picture" %><%= f.file_field :picture %><br/>
 			  
 			<%= f.text_field :title, :class=> "form-control", :placeholder=>"Title" %>
@@ -25,6 +25,8 @@
 		</div>
 		
 		<div class="all-images">
+			<h3>All your uploaded images.</h3>
+			
 			<ul class='img-list'>
 	<% @images.each do |i|%>
 		<li><%=link_to (image_tag i.picture.url('medium')), "/images/#{i.id}"%>
