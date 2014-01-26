@@ -22,6 +22,9 @@ class ImagesController < ApplicationController
   
   def show
     @image = Image.find(params[:id])
+    @comment= @image.comments.build
+    @comments = Comment.where("image_id = ?", @image.id)
+    
   end
   
   
@@ -43,6 +46,21 @@ class ImagesController < ApplicationController
    end
   
   
+  
+   def vote_for_image
+       @image = Image.find(params[:id])
+       current_user.vote_for(@image)
+       respond_to do |format|
+         format.js
+       end
+   end
+   def vote_against_image
+        @image = Image.find(params[:id])
+        current_user.vote_against(@image)
+        respond_to do |format|
+          format.js
+        end
+    end
   
   private 
    def image_params

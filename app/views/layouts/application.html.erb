@@ -8,6 +8,11 @@
 </head>
 <body>
 <div class="container">
+		<% if flash[:notice] %>
+		<div class='alert <% if flash[:notice] =~ /Success/i %> alert-success <% else %> alert-danger<% end %>' data-dismiss="alert">
+		<p><%= flash[:notice] %></p>
+		</div>
+		<% end %>
 <%= yield %>
 </div>
 </body>

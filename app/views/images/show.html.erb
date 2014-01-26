@@ -1,12 +1,48 @@
 <section>
 	<div class="wrapper">
 		<div class="img-show">
-		<h1><%=@image.title%></h1>
+		<h1><%=@image.title%> [<%=@image.impressionist_count %> Views] 		<%=link_to raw('<span class="glyphicon glyphicon-thumbs-up"></span>'), vote_for_image_image_path(@image), :remote => true %>
+				<%=link_to raw('<span class="glyphicon glyphicon-thumbs-down"></span>'), vote_against_image_image_path(@image), :remote => true %></h1>
 		<%= image_tag @image.picture.url('original')%>
 		<div class="desc"><p><%= social_share_button_tag(@image.title) %><br/>
 		<%=@image.description %></p></div>
-		<div class="views">
-		<p>Viewed <%=@image.impressionist_count %> times</p>
-		</div></div>
+	<div class="votes">
+	
+		</div>
+				<% if user_signed_in? %>
+				<div class="comment-form">
+					<%= form_for @comment, :class=>"form-horizontal",  :role => "form" do |f| %>
+			<div class="form-group">
+				<%= f.text_area :commentbody, :class=> "form-control", :placeholder=>"Write something here" %>
+			</div>
+			<%= f.hidden_field :image_id, :value => @image.id %>
+			<%= f.hidden_field :user_id, :value => current_user.id %>
+			<input type="text" name="foo" style="display: none;">
+
+
+			<div class="form-group">
+			<%= f.submit "Add a comment", :disable_with => 'Adding...', :class =>"btn btn-primary btn-sm submit" %>
+			<% end %>
+
+			<% else %>
+			<%= link_to "Log in to comment", new_user_session_path, :class => "btn btn-success" %> 
+
+				<% end %>
+		
+		</div>
+		
+		<% if !@comments.nil? %>
+			<div class="comments-list">
+				<h4> Comments (<%= Comment.find_all_by_image_id(@image.id).count %>)</h4>
+			<% @comments.each do  |c| %>
+			<div class="comment">
+			
+			<p class="comment-body">
+			<strong><%= User.find(c.user_id).email.split("@")[0]  %>: </strong>
+			<%= c.commentbody
+		  %></p></div>
+		<% end %>
+		<% end %>
+		
 	</div>
 </section>

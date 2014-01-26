@@ -23,7 +23,7 @@ gem 'aws-sdk'
 gem 'twitter-typeahead-rails'
 gem 'impressionist'
 gem 'social-share-button'
-
+gem 'thumbs_up'
 
 
 
