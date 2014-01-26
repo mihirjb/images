@@ -1,5 +1,6 @@
 <section>
 	<div class="wrapper">
+		
 		<div class="upload-form">
 		<%= form_for @image, :class=>"form-horizontal",  :role => "form", :html => { :multipart => true } do |f| %>
 		
@@ -18,8 +19,11 @@
 
 		<div class="form-group">
 		<%= f.submit "Add", :disable_with => 'Going...', :class =>"btn btn-success btn-lg btn-block" %>
+		</div>
+		
 		<% end %>
 		</div>
+		
 		<div class="all-images">
 			<ul class='img-list'>
 	<% @images.each do |i|%>
