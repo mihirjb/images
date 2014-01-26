@@ -32,26 +32,36 @@ div.wrapper ul.img-list li
 
 div.img-show
 {
+	float:left;
 	text-align:center;
-	width:600px;
-	margin:0 auto;
+	width:59%;
+	margin:10px auto;
 	background-color:#fff;
 	-moz-box-shadow:     0 0 3px 1px #ccc;
 	  -webkit-box-shadow:  0 0 3px 1px #ccc;
 	  box-shadow:          0 0 3px 1px #ccc;
 }
-div.img-show h1
+div.sidebar h1
 {
 	font-size:18px;
-	border-bottom:1px solid #ececec;
-	padding:20px;
+	line-height:27px;
+	margin:10px  auto 0px;
+	overflow:auto;
 }
-div.img-show p
+div.sidebar h1 span.title-text
+{
+	width:90%;
+}
+h1 span.vote-img
+{
+	width:10%;
+	float:right;
+}
+
+div.sidebar p
 {
 	
-	margin:0 auto;
 	border-collapse:collapse;
-	padding:10px;	
 }
 div.wrapper ul.img-list li
 {
@@ -80,15 +90,21 @@ div.wrapper div.img-show img
 
 }
 
+div.comment-form, div.desc,div.links
+{
+	border-bottom:1px solid #ececec;
+	border-top:1px solid #ececec;
+}
 div.comment-form form
 {
 	margin:20px;
 	text-align:justify;
 }
-div.desc, div.views, div.comment-form, div.comments-list
+div.mini-section
 {
-	border-bottom:1px solid #ececec;
-	border-top:1px solid #ececec;
+	margin:0 auto;
+	
+	padding:10px;
 }
  div.comments-list 
 {
@@ -104,5 +120,13 @@ div.comments-list p
 	border-bottom:1px solid #ececec;
 }
 span.glyphicon {
-    font-size: 1.2em;
+}
+
+
+/***************Sidebar*****************/
+
+div.sidebar
+{
+	width:40%;
+	float:left;
 }
