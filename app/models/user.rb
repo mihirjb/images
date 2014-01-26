@@ -25,5 +25,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          acts_as_voter
          has_many :images
+         has_many :favorites
          has_many :comments
 end

@@ -18,6 +18,8 @@ class Image < ActiveRecord::Base
   acts_as_voteable
   belongs_to :user
   has_many :comments
+  has_many :favorites
+  has_many :likers, :through => :favorites, :dependent => :destroy, :source => :users
   
     has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>", :mini => "30x30>" }, :default_url => "/pictures/:style/missing.png"
 end

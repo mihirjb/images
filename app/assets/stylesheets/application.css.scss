@@ -133,7 +133,7 @@ div.sidebar p
 span.cushion
 {
 	display:inline-block;
-	width:33%;
+	width:24%;
 }
 /************typeahead styles***********/
 .typeahead 
@@ -188,3 +188,20 @@ span.cushion
 .tt-suggestion p {
 	margin: 0;
 }
+
+/***********Favorites***************/
+
+
+
+.cushion .glyphicon-heart-empty
+{
+	font-size:1.5em;
+	color:#000;
+}
+.cushion .glyphicon-heart
+{
+	font-size:1.5em;
+	color:#CB202D;
+	
+}
+

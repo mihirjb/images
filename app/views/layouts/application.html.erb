@@ -61,6 +61,40 @@
 	  $('.typeahead').typeahead( {name: 'planets', remote:  '/images/titles.json?search=%QUERY', limit: 10 });
 	});
 
+	$(".favorite").click(function() {
+		
+		var classy =	$("#fav").attr('class');
+		
+	  var image_id = $(this).attr('id');
+	  $.ajax({
+	    type: "POST",
+	  beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+	
+	    url: '/favorites/' + image_id,
+	  processData : false,
+	    success: function() {
+	      // change image or something
+	
+
+	
+	    }
+	  });
+	if (classy == "glyphicon glyphicon-heart")
+	{
+		$("#fav").removeClass( "glyphicon-heart" );
+		
+	  $("#fav").addClass( "glyphicon-heart-empty" );
+	}
+	else
+	{
+		$("#fav").removeClass( "glyphicon-heart-empty" );
+		$("#fav").addClass( "glyphicon-heart" );
+		
+	}
+	
+	return false;
+	
+	});
 
 
 </script>

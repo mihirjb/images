@@ -11,7 +11,10 @@ Imgthing::Application.routes.draw do
         
      end
   end
+  post "/favorites/:image_id" => "favorites#decide", :as => :favorite
+  
   resources :comments
+  resources :favorites
   
   
   # The priority is based upon order of creation: first created -> highest priority.
