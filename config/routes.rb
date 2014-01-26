@@ -7,7 +7,7 @@ Imgthing::Application.routes.draw do
   resources :images do
      member do
         get :vote_for_image
-        delete :vote_against_image
+        get :vote_against_image
         
      end
   end
