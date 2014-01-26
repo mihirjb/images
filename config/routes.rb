@@ -1,5 +1,6 @@
 Imgthing::Application.routes.draw do
   
+  get "pages/dashboard"
   root :to => 'images#index'
   get 'images/titles' => 'images#titles'
   get "/images/upvotes" => "images#upvotes"
