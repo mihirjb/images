@@ -24,7 +24,15 @@ gem 'impressionist'
 gem 'social-share-button'
 gem 'thumbs_up'
 gem 'twitter-typeahead-rails'
-
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-instagram'
+gem 'omniauth-flickr'
+gem 'instagram'
+gem 'koala'
+gem 'flickraw'
+gem 'fleakr'
+gem 'twitter'
 
 
 
