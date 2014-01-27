@@ -25,6 +25,7 @@ gem 'impressionist'
 gem 'social-share-button'
 gem 'thumbs_up'
 gem 'twitter-typeahead-rails'
+gem 'newrelic_rpm'
 
 
 
