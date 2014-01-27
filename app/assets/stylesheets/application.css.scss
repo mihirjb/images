@@ -222,3 +222,29 @@ div.all-images
 	width:55%;
 	float:left;
 }
+
+
+/****************responsive styles*************/
+
+
+@media (max-width: 1000px) {
+  div.container .panel  { width: 350px;
+	margin: 0px auto;
+
+ }
+}
+@media (max-width: 500px) {
+
+div.sidebar,div.img-show
+{
+	width:95%;
+}
+div.wrap
+{
+padding: 0px;
+}
+  div.container .panel  { width: 280px; 
+	margin: 0 auto;
+
+}
+}
