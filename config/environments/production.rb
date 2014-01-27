@@ -78,6 +78,7 @@ Imgthing::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   config.assets.initialize_on_precompile = false
+  config.action_mailer.default_url_options = { :host => 'impthings.com' }
   
   config.action_mailer.smtp_settings = {
      :address   => "smtp.mandrillapp.com",
@@ -86,7 +87,7 @@ Imgthing::Application.configure do
      :user_name => "info@happyfellas.com",
      :password  => ENV['MANDRILL_PWD'], # SMTP password is any valid API key
      :authentication => 'login', # Mandrill supports 'plain' or 'login'
-     :domain => 'localhost', # your domain to identify your server when connecting
+     :domain => 'impthings', # your domain to identify your server when connecting
    }
   
   
