@@ -79,6 +79,18 @@ Imgthing::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
   config.assets.initialize_on_precompile = false
   
+  config.action_mailer.smtp_settings = {
+     :address   => "smtp.mandrillapp.com",
+     :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
+     :enable_starttls_auto => true, # detects and uses STARTTLS
+     :user_name => "info@happyfellas.com",
+     :password  => ENV['MANDRILL_PWD'], # SMTP password is any valid API key
+     :authentication => 'login', # Mandrill supports 'plain' or 'login'
+     :domain => 'localhost', # your domain to identify your server when connecting
+   }
+  
+  
+  
   # config/environments/production.rb
   config.paperclip_defaults = {
     :storage => :s3,
