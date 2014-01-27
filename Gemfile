@@ -20,12 +20,10 @@ gem 'paperclip'
 gem 'bootstrap-sass'
 gem 'devise', '3.0.0.rc'
 gem 'aws-sdk'
-gem 'twitter-typeahead-rails'
 gem 'impressionist'
 gem 'social-share-button'
 gem 'thumbs_up'
 gem 'twitter-typeahead-rails'
-gem 'newrelic_rpm'
 
 
 
@@ -45,4 +43,6 @@ group :development do
 end 
 group :production do
  gem 'pg'
+ gem 'newrelic_rpm'
+ 
 end
