@@ -32,6 +32,7 @@ gem 'koala'
 gem 'flickraw'
 gem 'fleakr'
 gem 'twitter'
+gem 'rails_autolink'
 
 
 

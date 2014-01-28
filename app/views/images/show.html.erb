@@ -14,7 +14,7 @@
 		
 		<div class="sidebar">
 			<div class="mini-section">
-				<h1><span class="title-text" id="<%= @image.id %>"><%=@image.title%> </span>
+				<h1><span class="title-text" id="<%= @image.id %>"><%= auto_link(@image.title)%> </span>
 					
 					<% if user_signed_in?%>
 					
