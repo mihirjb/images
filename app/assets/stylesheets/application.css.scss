@@ -232,8 +232,17 @@ div.all-images
 	margin: 0px auto;
 
  }
+
+div.ads
+{
+	display:none;
+}
 }
 @media (max-width: 500px) {
+	div.ads
+	{
+		display:none;
+	}
 
 div.sidebar,div.img-show
 {
