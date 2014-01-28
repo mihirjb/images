@@ -14,7 +14,10 @@
 		
 		<div class="sidebar">
 			<div class="mini-section">
-				<h1><span class="title-text" id="<%= @image.id %>"><%= auto_link(@image.title)%> </span>
+				<h1><span class="title-text" id="<%= @image.id %>"><%= auto_link(@image.title, :html => { :target => '_blank' }) do |text|
+				  truncate(text, :length => 15)
+				end
+				%> </span>
 					
 					<% if user_signed_in?%>
 					
@@ -44,7 +47,10 @@
 						</h1></div>
 						
 							<div class="mini-section desc"><p>
-							<%= auto_link(@image.description) %></p>
+							<%= auto_link(@image.description, :html => { :target => '_blank' }) do |text|
+							  truncate(text, :length => 15)
+							end
+							%></p>
 							<%= social_share_button_tag(@image.title) %></div>
 						<div class="mini-section votes">
 <p><span class="cushion"><span class="upvote"><%= Vote.where('voteable_id =? AND vote =?', @image.id, true).count %></span> <span class="glyphicon glyphicon-thumbs-up"></span></span><span class="cushion">  <span class="downvote"><%= Vote.where('voteable_id =? AND vote =?', @image.id, false).count %></span> <span class="glyphicon glyphicon-thumbs-down"></span></span> <span class="cushion"><%=@image.impressionist_count %> Views</span>
