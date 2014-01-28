@@ -44,7 +44,7 @@
 						</h1></div>
 						
 							<div class="mini-section desc"><p>
-							<%=@image.description %></p>
+							<%= auto_link(@image.description) %></p>
 							<%= social_share_button_tag(@image.title) %></div>
 						<div class="mini-section votes">
 <p><span class="cushion"><span class="upvote"><%= Vote.where('voteable_id =? AND vote =?', @image.id, true).count %></span> <span class="glyphicon glyphicon-thumbs-up"></span></span><span class="cushion">  <span class="downvote"><%= Vote.where('voteable_id =? AND vote =?', @image.id, false).count %></span> <span class="glyphicon glyphicon-thumbs-down"></span></span> <span class="cushion"><%=@image.impressionist_count %> Views</span>
