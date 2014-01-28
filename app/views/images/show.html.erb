@@ -60,12 +60,37 @@
 								<p>Finally a clean and easy to use image hosting service. Sign up now to upload unlimited images for absolutely no cost.</p>
 								<a class="btn btn-success btn-lg" href="<%= new_user_registration_path %>">Sign Up!</a>
 								</div>
+								
+								<div class="ads">
+									<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+									<!-- below in the sidebar -->
+									<ins class="adsbygoogle"
+									     style="display:inline-block;width:300px;height:250px"
+									     data-ad-client="ca-pub-4842348686549080"
+									     data-ad-slot="6338865740"></ins>
+									<script>
+									(adsbygoogle = window.adsbygoogle || []).push({});
+									</script>
+									</div>
+								
 							
 			</div>
 		<div class="img-show">
 	
 		<%= image_tag @image.picture.url('original')%>
 		<div class="comment-form mini-section">
+			<div class="ads">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- Just below the picture -->
+				<ins class="adsbygoogle"
+				     style="display:inline-block;width:728px;height:90px"
+				     data-ad-client="ca-pub-4842348686549080"
+				     data-ad-slot="1908666145"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+				
+				</div>
 	
 				<% if user_signed_in? %>
 					<%= form_for @comment, :class=>"form-inline",  :role => "form" do |f| %>
